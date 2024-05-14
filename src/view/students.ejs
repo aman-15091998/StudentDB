@@ -1,0 +1,43 @@
+<%if(studentList.length==0){%>
+<h2 class="text-center">No students are there</h2>
+<%}%> <%if(studentList.length>0){%>
+<h2 class="text-center">Students</h2>
+<div class="container">
+  <form
+    method="POST"
+    enctype="application/x-www-form-urlencoded"
+    ,
+    action="/search"
+  >
+    <div class="mb-3">
+      <label for="skills" class="form-label"
+        >Search by Skills (Use commas for multiple)</label
+      >
+      <input type="text" class="form-control" id="skills" name="skills" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">CGPA</th>
+      <th scope="col">Skills</th>
+      <th scope="col">Photo</th>
+      <th scope="col">CV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%studentList.forEach(obj=>{%>
+    <tr>
+      <td><%= obj.name%></td>
+      <td><%= obj.CGPA%></td>
+      <td><%= obj.skills %></td>
+      <td><a href="<%= obj.photo%>" target="_blank">View</a></td>
+      <td><a href="<%= obj.CV%>" target="_blank">View</a></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+<%}%>

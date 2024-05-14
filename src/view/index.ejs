@@ -1,0 +1,35 @@
+<h2 class="mt-5 text-center">Student Form</h2>
+<%if(error){%>
+<div class="alert alert-warning" role="alert"><%=error%></div>
+<%}%>
+<div class="container">
+  <form method="POST" action="/add" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" id="name" />
+    </div>
+    <div class="mb-3">
+      <label for="CGPA" class="form-label">CGPA</label>
+      <input type="text" class="form-control" name="CGPA" id="CGPA" />
+    </div>
+    <select
+      class="form-select"
+      name="skills"
+      multiple
+      aria-label="Multiple select example"
+    >
+      <option value="Java">Java</option>
+      <option value="Nodejs">NodeJs</option>
+      <option value="React">React</option>
+    </select>
+    <div class="mb-3">
+      <label for="photo" class="form-label">Upload Photo</label>
+      <input class="form-control" type="file" id="photo" name="photo" />
+    </div>
+    <div class="mb-3">
+      <label for="CV" class="form-label">Upload CV</label>
+      <input class="form-control" type="file" id="CV" name="CV" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
